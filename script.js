@@ -1,12 +1,12 @@
-function init() {
+function createCanvas(size) {
 
-    const container = document.querySelector(".container");
+    const canvas = document.querySelector("#canvas");
 
-    for (i = 0; i < 16; i++) {
-        for (j = 0; j < 16; j++) {
+    for (i = 0; i < size; i++) {
+        for (j = 0; j < size; j++) {
             const div = document.createElement("div");
             div.classList.add("pixel");
-            container.appendChild(div);
+            canvas.appendChild(div);
 
         }
     }
@@ -24,4 +24,29 @@ function listenForMouse() {
     }
 }
 
-init();
+function changeCanvasSize() {
+    const canvasSize = prompt("What size canvas would you like?");
+    clearCanvas();
+    createCanvas(canvasSize);
+    changePixelSize(canvasSize);
+}
+
+function changePixelSize(canvasSize) {
+
+    let pixels = document.querySelectorAll(".pixel");
+    pixelWidth = 960/canvasSize;
+    pixelHeight = 960/canvasSize;
+    for (i = 0; i < pixels.length; i++) {
+        pixels[i].style.width = pixelWidth + "px";
+        pixels[i].style.height = pixelHeight +"px";
+        }
+    }
+
+function clearCanvas() {
+    const canvas = document.querySelector("#canvas");
+    while (canvas.lastChild) {
+        canvas.removeChild(canvas.lastChild);
+    }
+}
+
+createCanvas(16);
