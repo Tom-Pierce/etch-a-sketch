@@ -12,8 +12,9 @@ body {
 }
 
 .pixel {
-    height: 58px;
-    width: 58px;
+    box-sizing: border-box;
+    height: 60px;
+    width: 60px;
     border-style: solid;
     border-width: 1px;
 }

@@ -10,5 +10,18 @@ function init() {
 
         }
     }
+    listenForMouse();
 }
+
+function listenForMouse() {
+
+    let pixels = document.querySelectorAll(".pixel");
+
+    for (i = 0; i < pixels.length; i++) {
+        pixels[i].addEventListener("mouseover", (event) => {
+            event.target.style.backgroundColor = "black";
+        });
+    }
+}
+
 init();
