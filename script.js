@@ -4,12 +4,12 @@ function createCanvas(size) {
     const canvas = document.querySelector("#canvas");
 
     //loops through to make each "pixel" and appends it to the canvas
-        for (j = 0; j < size*size; j++) {
-            const div = document.createElement("div");
-            div.classList.add("pixel");
-            canvas.appendChild(div);
+    for (j = 0; j < size * size; j++) {
+        const div = document.createElement("div");
+        div.classList.add("pixel");
+        canvas.appendChild(div);
 
-        }
+    }
     listenForMouse();
 }
 
@@ -27,17 +27,25 @@ function listenForMouse() {
 
 function changeCanvasSize() {
     const canvasSize = document.getElementById("canvasSize").value;
+    
     clearCanvas();
     createCanvas(canvasSize);
     changePixelSize(canvasSize);
+    updateLabel(canvasSize);
+}
+
+function updateLabel(size){
+    let sizeLabel = document.getElementById("canvasSizeLabel");
+    sizeLabel.textContent = "Canvas Size :" + size;
+
 }
 
 function changePixelSize(canvasSize) {
 
-    //loops through each pixel and makes it fit into the canvas
+    //loops through each pixel and changes the size of each one to fit in the canvas
     let pixels = document.querySelectorAll(".pixel");
-    pixelWidth = 960 / canvasSize;
-    pixelHeight = 960 / canvasSize;
+    pixelWidth = 500 / canvasSize;
+    pixelHeight = 500 / canvasSize;
     for (i = 0; i < pixels.length; i++) {
         pixels[i].style.width = pixelWidth + "px";
         pixels[i].style.height = pixelHeight + "px";
@@ -64,4 +72,4 @@ function resetCanvas() {
     }
 }
 //initializes the canvas
-createCanvas(16);
+changeCanvasSize();

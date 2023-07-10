@@ -12,8 +12,8 @@
 <body>
     <div class="options">
         <button id="reset" prompt onclick="resetCanvas()">Reset</button>
-        <input type="range" id="canvasSize" name="canvasSize" oninput="changeCanvasSize()" min="1" max="64" step="1">
-        <label for="canvasSize">Canvas Size</label>
+        <input type="range" id="canvasSize" name="canvasSize" oninput="changeCanvasSize()" value="16" max="64" step="1">
+        <label id="canvasSizeLabel" for="canvasSize">Canvas Size</label>
     </div>
     <div id="canvas" class="container">
 
